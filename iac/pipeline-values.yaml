@@ -1,0 +1,24 @@
+# Default values for tekton-pipeline.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+name: quarkus-getting-started
+
+source:
+  url: https://github.com/rossato-rh/quarkus-getting-started.git
+  revision: tekton
+
+build:
+  goals:
+    - -DskipTests
+    - clean
+    - package
+#    - -Dnative
+#  image: registry.access.redhat.com/quarkus/mandrel-21-rhel8:latest
+
+buildImage:
+  dockerfile: src/main/docker/Dockerfile.jvm
+  tlsVerify: "false"
+
+deploy:
+  chartDir: iac/helm

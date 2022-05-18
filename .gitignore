@@ -4,6 +4,9 @@
 .settings/
 bin/
 
+# Emacs
+*~
+
 # IntelliJ
 .idea
 *.ipr
